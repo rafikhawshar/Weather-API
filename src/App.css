@@ -1,238 +1,534 @@
 * {
+
   font-family: 'Raleway', sans-serif;
+
 }
+
+
+
+
+
 
 
 header {
+
   height: 8vh;
+
   display: flex;
+
   flex-direction: row;
+
   align-items: center;
+
   column-gap: 2%;
+
   padding: 1%;
-  background-color: #759eda;
+
+  background-color: rgba(117, 158, 218, 255);
+
+
+
 
 }
+
+
+
 
 .button {
+
   height: 80%;
+
+  
+
   padding: 1%;
+
   color: black;
-  background-color: #5879c7 ;
+
+  background-color: rgb(88, 121, 199, 255);
+
   border: none;
+
   font-size: 20px;
+
   cursor: pointer;
+
 }
+
+
+
 
 #country {
+
   border: none;
+
   height: 80%;
+
   width: 20%;
+
   background-color: transparent;
+
   color: white;
+
   font-size: 20px;
 
+
+
+
 }
 
+
+
+
 #country::placeholder {
-  color: #fdfdfe;
+
+  color: rgba(255, 255, 255, 0.753);
+
 }
+
+
+
+
+
 
 
 #country:focus {
+
   border-bottom: 1px solid white;
+
   outline: none;
+
 }
+
+
+
 
 main {
+
   display: flex;
+
   flex-direction: column;
-  background-color: #9ccef4;
+
+  background-color: rgba(156, 206, 244, 255);
+
   height: 100vh;
+
   align-items: center;
+
   padding: 3%;
 
+
+
+
 }
 
-.bodyimg {
+
+
+
+.nowImg {
+
   width: 60%;
+
   height: 60%;
 
+
+
+
 }
 
 
-.currentweather {
+
+
+
+
+
+.nowWeather {
+
   width: 40%;
+
   height: 40%;
+
   text-align: center;
+
   justify-self: center;
+
   align-self: center;
+
   justify-content: space-between;
+
   align-items: center;
+
   display: flex;
+
   flex-direction: column;
+
 }
+
+
+
 
 #title {
+
   color: white;
+
   font-size: 25px;
+
   font-weight: bold;
+text-align: center;
 }
+
+
+
+
+#weatherNowTemp {
+
+  font-size: 20px;
+
+}
+
 
 
 
 .dayweather {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   width: 80%;
+
   margin-top: 5%;
+
 }
 
 
-.timedata {
+
+
+
+
+
+.timedetail {
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: space-around;
+
   height: auto;
+
   color: #171780;
+
   font-size: 20px;
 
+
+
+
 }
- 
-.weatherimg {
+
+
+
+
+.wImg {
+
   width: 70%;
+
   height: 70%;
+
 }
 
-.temp {
+
+
+
+.para {
+
   color: #171780;
+
   font-size: 22px;
+
 }
 
-.climatemetrics {
+
+
+
+.para2 {
+
   color: #171780;
+
   font-size: 18px;
 
+
+
+
 }
+
+
+
 
 .a {
+
   margin: 15px;
+
   color: #030348;
+
   font-weight: bold;
+
 }
+
+
+
 
 .weatherTemp {
+
   font-size: 25px;
+
   font-weight: bold;
+
   margin: 10px;
+
   color: #030348;
+
 }
+
+
+
 
 .detailsT {
+
   font-weight: bold;
+
 }
+
+
+
 
 @media (max-width:600px) {
+
   main {
+
     height: auto;
+
   }
+
+
+
 
   header {
+
     display: flex;
+
     flex-direction: row;
+
     justify-content: space-evenly;
+
     align-items: center;
+
     padding: 2%;
 
+
+
+
   }
+
+
+
 
   .button,
+
   #country {
+
   font-size: 15px;
+
     width: 40%;
 
+
+
+
   }
+
+
+
 
   .dayweather {
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     width: 80%;
+
     margin: auto;
+
   }
+
+
+
 
   .timedetail {
+
     display: flex;
+
     flex-direction: row;
+
     justify-content: space-evenly;
+
     align-items: center;
+
   }
 
 
 
-  .currentweather {
+
+
+
+
+
+
+
+  .nowWeather {
+
     width: 100%;
+
     height: 40%;
+
     justify-self: center;
+
     align-self: center;
+
     justify-content: center;
+
     align-items: center;
+
     display: flex;
+
     flex-direction: column;
+
   }
 
-  .weatherimg {
+
+
+
+  .wImg {
+
     width: 20%;
+
     height: 20%;
+
   }
 
-  .temp {
+
+
+
+  .para {
+
     color: #171780;
+
     font-size: 18px;
+
   }
 
-  .climatemetrics {
+
+
+
+  .para2 {
+
     color: #171780;
+
     font-size: 16px;
 
+
+
+
   }
+
 }
 
+
+
+
 @media (max-width:300px) {
-  .temp {
+
+  .para {
+
     font-size: 16px;
+
   }
+
+
+
 
   .weatherTemp {
+
     font-size: 18px;
+
     font-weight: bold;
+
     margin: 13px;
+
     color: #030348;
+
   }
 
+
+
+
   .button,
+
   #country {
+
     font-size: 10px;
+
     width: 40%;
 
+
+
+
   }
 
-  .climatemetrics {
+
+
+
+  .para2 {
+
     font-size: 13px;
 
+
+
+
   }
+
+
+
 
   .button,
+
   #country {
+
     font-size: 10px;
+
+
+
 
   }
 
-  .timedata {
+
+
+
+  .timedetail {
+
+
+
 
     font-size: 13px;
 
+
+
+
   }
+
 }
