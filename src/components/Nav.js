@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Nav() {
+
+function Nav(props) {
+
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    props.onInputChange(value);
+  };
+
   return (
-    <header>
-      <input
-        type="text"
-        name="country"
-        id="country"
-        placeholder="Enter A City Name"
-      />
-      <input class="button" type="submit" value="FIND WEATHER"></input>
-    </header>
-  );
+    <div className="search">
+      <header>
+        <input type="text" name="city" id="city" placeholder="Type in a city name" value={inputValue} onChange={handleInputChange} />
+        <input class="btn" type="submit" value="FIND WEATHER" onClick={props.onClick}></input>
+      </header>
+
+    </div>
+  )
 }
 
 export default Nav;
