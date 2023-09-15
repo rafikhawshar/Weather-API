@@ -1,27 +1,20 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "./components/Nav";
 
-import { CurrentWeather, WeatherItem } from "./components/WeatherItem"
-
-
+import { CurrentWeather, WeatherItem } from "./components/WeatherItem";
 
 function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [showData, setShowData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [inputValue, setInputValue] = useState("tripoli");
-  const [showData,setShowData]=useState(null);
-  const [isLoading,setIsLoading]=useState(false);
-
-
-  const API_KEY="802cb808854e62aea8fbf43c3043a1ad";
+  const API_KEY = "802cb808854e62aea8fbf43c3043a1ad";
 
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&cnt=8&units=metric&appid=${API_KEY}`;
-  
 
-  const handleSearch = async() => {
-   
-    setIsLoading(true)
+  const handleSearch = async () => {
+    setIsLoading(true);
 
-   
     await fetch(url)
       .then((response) => {
         if (!response.ok) {
@@ -30,48 +23,42 @@ function App() {
         return response.json();
       })
       .then((showData) => {
-        
         setShowData(showData);
-        setIsLoading(false)
-        
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error to fetch weather data:", error);
-       
-        setIsLoading(false)
+        alert("this is not a city name ", error);
+
+        setIsLoading(true);
       });
   };
 
-  useEffect(()=>{
-    if(setIsLoading){
+  useEffect(() => {
+    if (setIsLoading) {
       handleSearch();
     }
-
-  },[])
+  }, []);
 
   const handleInputValueChange = (value) => {
     setInputValue(value);
   };
-  
-  
+
   return (
     <div className="app">
-      <Nav onClick={handleSearch} onInputChange={handleInputValueChange}/>
+      <Nav onClick={handleSearch} onInputChange={handleInputValueChange} />
 
-      {showData && !isLoading ?  (
-      <div className="main">
-    
-   
-      <CurrentWeather showData={showData}/>
+      {showData && !isLoading ? (
+        <div className="main">
+          <CurrentWeather showData={showData} />
 
-      <WeatherItem showData={showData}/> 
-      
-      </div> 
-      ) : <span>Loading.......</span>
-     }
-      </div>
-
-  )
+          <WeatherItem showData={showData} />
+        </div>
+      ) : (
+        <span>Loading.......</span>
+      )}
+    </div>
+  );
 }
 
 export default App;
